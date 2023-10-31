@@ -43,7 +43,6 @@ class userControlador
     }
     public function ingresoControlador()
     {
-        var_dump($_POST);
         if (isset($_POST["nombre"])) {
 
             $datosControlador = array("nombre" => $_POST["nombre"],
