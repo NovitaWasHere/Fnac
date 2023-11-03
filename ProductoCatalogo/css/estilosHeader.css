@@ -1,0 +1,168 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+header {
+    background-color: white;
+    width: 100%;
+    height: 85px;
+    top: 0;
+    left: 0;
+    position: sticky;
+    z-index: 9999; /*sobreponer*/
+    border-bottom: 1px solid rgb(232, 232, 232);
+}
+
+#cajaLogo {
+    width: 100px;
+    height: 90%;
+    float: left;
+    margin-left: 50px;
+    margin-top: 3px;
+}
+
+#cajaLogo a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#cajaLogo img {
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    width: 36%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    float: left;
+    margin-left: 20px;
+}
+
+nav div {
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+nav div a {
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    position: relative;
+}
+
+nav div a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: #fcb345;
+    transform-origin: bottom center;
+    transition: transform 0.1s ease-out;
+}
+
+nav div a:hover::after {
+    transform: scaleX(0.7);
+    transform-origin: bottom center;
+}
+
+#cajaBuscador {
+    width: 250px;
+    height: 90%;
+    float: left;
+    margin-left: 350px;
+    margin-top: 3px;
+}
+
+#cajaBuscador input {
+    display: block;
+    width: 100%;
+    height: 25px;
+    margin-top: 24px;
+}
+
+#cajaLogin {
+    width: 45px;
+    height: 45%;
+    float: left;
+    margin-left: 50px;
+    margin-top: 22px;
+}
+
+#cajaCarrito {
+    width: 45px;
+    height: 45%;
+    float: left;
+    margin-left: 10px;
+    margin-top: 22px;
+}
+
+#cajaLogin img, #cajaCarrito img {
+    width: 100%;
+    height: 100%;
+}
+
+#cajaDesplegable {
+    width: 100%;
+    height: 325px;
+    box-shadow: 0px 2px 3px 0px rgb(192, 192, 192);
+    display: none;
+    background-color: white;
+    border-top: 1px solid rgb(232, 232, 232);
+}
+
+#contenedorCategorias {
+    width: 90%;
+    height: 295px;
+    margin: auto;
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    clear: both;
+}
+
+#contenedorCategorias div {
+    width: 200px;
+    height: 293px;
+    margin: auto;
+    text-align: left;
+    font-size: 12px;
+}
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: orange;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(123, 123, 123);
+}

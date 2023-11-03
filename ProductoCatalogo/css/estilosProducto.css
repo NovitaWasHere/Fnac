@@ -1,0 +1,53 @@
+/* CHECKBOX DE FILTROS EXTRAÍDA DE: https://moderncss.dev/pure-css-custom-checkbox-style/     */
+/* SOMBRA ON HOVER EXTRAÍDO DE: https://stackoverflow.com/questions/50757671/add-shadow-effect-on-hover-to-div-boxes */
+
+section {
+    background-color: white;
+    height: 1500px;
+    z-index: 1;
+}
+
+.producto{
+    margin-bottom: 10px;
+    border: 1px solid RGB(220,220,220);
+    height: 410px;
+    width: 280px;
+    /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);*/
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.producto h3{
+    height: 10%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.producto .marca{
+    height: 10%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.producto .precio{
+    height: 10%;
+    font-size: 20px;
+    color: #fcb345;
+    font-weight: bold;
+}
+
+.producto .descripcion{
+    margin-top: -20px;
+    height: 20%;
+    font-weight: lighter;
+    font-size: 13px;
+    color: #818181;
+}
+
+.producto .imagen{
+    padding-top: 10px;
+    height: 40%;
+}
+
+.producto:hover{
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
