@@ -1,0 +1,31 @@
+
+.scroll-container {
+    width: 1500px; /* Ancho del contenedor del scroll */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    overflow-x:scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.scroll-element {
+    text-align: center;
+    display: inline-block;
+    width: 300px; /* Ancho de cada elemento en el scroll */
+    height: 100px;
+    border: 1px solid #000;
+    margin-right: 10px; /* Espacio entre elementos */
+}
+.price{
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.info-product button{
+    border: none;
+    background: none;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 10px;
+    cursor: pointer;
+}
