@@ -34,24 +34,40 @@ if (isset($_GET["id"])){
     ?>
 
     <div class="contenedor">
-        <div class="contenedorImagen">
-            <div class="imagen">
-                <img id="foto" src="" title="">
-            </div>
-        </div>
         <div class="contenedorDatos">
             <div class="titulo">
-                <h2 id="nombre">Datos generales</h2>
+                <h2 id="nombre">Producto</h2>
+                <div class="contenedorImagen">
+                    <div class="imagen">
+                        <img id="foto" src="" title="">
+                    </div>
+                </div>
             </div>
             <div class="caract">
-                <div class="caract">
-                    <h3 id="marca">Características: </h3>
-                    <ul>
-                        <li>Tamaño de pantalla ("): </li>
-                        <li>Tipo de procesador: </li>
-                        <li>Fabricante del procesador: </li>
-                        <li>RAM: </li>
-                    </ul>
+                <h3 id="marca">Características: </h3>
+                <div class="caractElem1">
+                    <p id="pantalla" class="li1">Tamaño de pantalla ("): </p>
+                </div>
+                <div class="caractElem">
+                    <p id="procesador">Tipo de procesador: </p>
+                </div>
+                <div class="caractElem1">
+                    <p id="fabPro">Fabricante del procesador: </p>
+                </div>
+                <div class="caractElem">
+                    <p id="ram">RAM: </p>
+                </div>
+                <div class="caractElem1">
+                    <p id="dd">Disco duro: </p>
+                </div>
+                <div class="caractElem">
+                    <p id="tamDd">Tamaño del disco duro: </p>
+                </div>
+                <div class="caractElem1">
+                    <p id="so">Sistema operativo: </p>
+                </div>
+                <div class="caractElem">
+                    <p id="usb">Puertos USB: </p>
                 </div>
             </div>
             <div class="cajaPrecio">

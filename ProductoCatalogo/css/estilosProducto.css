@@ -7,6 +7,31 @@ section {
     z-index: 1;
 }
 
+.contenedorDatos{
+    margin: 3rem 5rem 5rem;
+    display: grid;
+    grid-template-columns: 45% 35% 20%;
+}
+
+.caract {
+    margin-right: 3rem;
+}
+
+.caractElem1{
+    height: 30px;
+    padding-top: 0px;
+    padding-left: 1rem;
+    padding-bottom: 6.5px;
+    background-color: RGB(230,230,230);
+}
+
+.caractElem{
+    height: 30px;
+    padding-left: 1rem;
+    padding-bottom: 6.5px;
+}
+
+
 .producto{
     margin-bottom: 10px;
     border: 1px solid RGB(220,220,220);
