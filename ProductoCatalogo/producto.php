@@ -46,28 +46,28 @@ if (isset($_GET["id"])){
             <div class="caract">
                 <h3 id="marca">Características: </h3>
                 <div class="caractElem1">
-                    <p id="pantalla" class="li1">Tamaño de pantalla ("): </p>
+                    Tamaño de pantalla ("):
                 </div>
                 <div class="caractElem">
-                    <p id="procesador">Tipo de procesador: </p>
+                    Tipo de procesador:
                 </div>
                 <div class="caractElem1">
-                    <p id="fabPro">Fabricante del procesador: </p>
+                    Fabricante del procesador:
                 </div>
                 <div class="caractElem">
-                    <p id="ram">RAM: </p>
+                    RAM:
                 </div>
                 <div class="caractElem1">
-                    <p id="dd">Disco duro: </p>
+                    Disco duro:
                 </div>
                 <div class="caractElem">
-                    <p id="tamDd">Tamaño del disco duro: </p>
+                    Tamaño del disco duro:
                 </div>
                 <div class="caractElem1">
-                    <p id="so">Sistema operativo: </p>
+                    Sistema operativo:
                 </div>
                 <div class="caractElem">
-                    <p id="usb">Puertos USB: </p>
+                    Puertos USB:
                 </div>
             </div>
             <div class="cajaPrecio">
