@@ -22,6 +22,11 @@ window.onload = function(){
             document.getElementsByClassName("caractElem")[2].innerHTML = "Tamaño del disco duro: " + data[0][8] + ".";
             document.getElementsByClassName("caractElem1")[3].innerHTML = "Sistema operativo: " + data[0][9] + ".";
             document.getElementsByClassName("caractElem")[3].innerHTML = "Puertos USB: " + data[0][10] + ".";
+            document.getElementById("precioFinal").textContent = data[0][0] + "€";
+
+            let plazos = Math.round((data[0][0]/14)*100) / 100 + "€";
+
+            document.getElementById("plazos").textContent = plazos;
 
             //A la foto asignamos no sólo su src sino su título. Para el src, usamos esa foto almacenada dentro de nuestra BD, y para
             //su título el nombre del propio elemento.

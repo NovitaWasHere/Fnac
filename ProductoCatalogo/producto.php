@@ -74,17 +74,29 @@ if (isset($_GET["id"])){
                 <div class="precio">
                     <h3 id="precioFinal"></h3>
                 </div>
-                <div class="info">
-                    <p id="plazos">Págalo a plazos desde</p>
-                    <p>Elige el método de pago al finalizar tu compra.</p><a href="#">Ver condiciones legales*.</a>
+                <div class="infoMetodo">
+                    <div class="info">
+                        <p>Págalo a plazos desde</p><p id="plazos"></p><p>en 14 meses.</p>
+                    </div>
+                    <div class="metodo">
+                        <p>Elige el método de pago al finalizar tu compra.</p><a href="#">Ver condiciones legales*.</a>
+                    </div>
+                </div>
+                <div class="socio">
+                    <input type="checkbox">
+                    <h4>Hazte socio TECH+CULTURA</h4>
+                    <p></p>
+                    <p>Hasta -5% en tus compras y envío gratis ilimitado (14,90€ al año)</p>
                 </div>
                 <div class="botonesPago">
                     <a href="#">
                         <div class="compraClic">
+                            Comprar en un clic
                         </div>
                     </a>
                     <a href="#">
                         <div class="cesta">
+                            Añadir a la cesta
                         </div>
                     </a>
                 </div>
