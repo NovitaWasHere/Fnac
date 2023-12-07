@@ -120,10 +120,14 @@ section {
 
 .producto .descripcion{
     margin-top: -20px;
-    height: 20%;
+    margin-bottom: -20px;
+    height: 15%;
     font-weight: lighter;
     font-size: 13px;
     color: #818181;
+    text-align: justify;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
 .producto .imagen{
@@ -133,4 +137,32 @@ section {
 
 .producto:hover{
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.botonCar{
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.botonCarrito{
+    display: block;
+    margin-top: -70px;
+}
+
+.botonCarrito button{
+    font-size: 15px;
+    border: 2px solid #fcb345;
+    background-color: white;
+    color: #fcb345;
+    text-align: center;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.botonCarrito button:hover{
+    transition-duration: 0.2s;
+    background-color: #fcb345;
+    color: white;
 }

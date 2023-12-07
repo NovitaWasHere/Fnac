@@ -43,10 +43,15 @@ window.onload = function (){
                     '                   <p>' + data[i][2] +'</p>\n' +
                     '               </div>' +
                     '               <div class="descripcion">' +
-                    '                   <p>Descripción breve del producto. Como la descripción puede ocupar varias líneas, es importante que no sobrepase las 3. Pero su verdadero máximo son cinco líneas de texto.</p>' +
+                    '                   <p>Descripción breve del producto. Como la descripción puede ocupar varias líneas, es importante que no sobrepase las 3.</p>' +
                     '               </div>\n' +
                     '               <div class="precio">\n' +
                     '                   <p>' + data[i][0] + '</p>\n' +
+                    '               </div>' + '' +
+                    '               <div class="botonCarrito">' +
+                    '                   <a href="#">' +
+                    '                       <button>Añadir al carrito</button>' +
+                    '                   </a>' +
                     '               </div>' +
                     '           </a>';
             }
