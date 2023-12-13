@@ -1,0 +1,116 @@
+/* CHECKBOX DE FILTROS EXTRAÍDA DE: https://moderncss.dev/pure-css-custom-checkbox-style/     */
+/* SOMBRA ON HOVER EXTRAÍDO DE: https://stackoverflow.com/questions/50757671/add-shadow-effect-on-hover-to-div-boxes */
+
+section {
+    background-color: white;
+}
+
+#catalogo{
+    display: grid;
+    grid-template-columns: 0.25fr 1fr;
+    grid-gap: 20px;
+    height: auto;
+}
+
+#catalogo a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#filtros{
+    padding-left: 80px;
+    padding-top: 40px;
+    padding-right: 40px;
+    border-right: 1px solid RGB(220,220,220);
+}
+
+#filtros label{
+    font-family: system-ui, sans-serif;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    font-size: 14px;
+}
+
+#filtros input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 1px solid black;
+    border-radius: 0.1em;
+    display: grid;
+}
+
+#filtros h3{
+    font-size: 17px;
+}
+
+#filtros input[type="checkbox"]::before {
+    content: "";
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: #fcb345;
+}
+
+#filtros input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+#filtros li{
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.tituloFiltro{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fcb345;
+}
+
+.filtro a{
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+}
+.producto h3{
+    height: 10%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.producto .marca{
+    height: 10%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.producto .precio{
+    height: 10%;
+    font-size: 20px;
+    color: #fcb345;
+    font-weight: bold;
+}
+
+.producto .descripcion{
+    margin-top: -20px;
+    height: 20%;
+    font-weight: lighter;
+    font-size: 13px;
+    color: #818181;
+}
+.producto:hover{
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+button{
+
+    display: block;
+    margin-top: 10px;
+
+}

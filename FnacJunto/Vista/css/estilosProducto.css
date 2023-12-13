@@ -1,0 +1,227 @@
+/* CHECKBOX DE FILTROS EXTRAÍDA DE: https://moderncss.dev/pure-css-custom-checkbox-style/     */
+/* SOMBRA ON HOVER EXTRAÍDO DE: https://stackoverflow.com/questions/50757671/add-shadow-effect-on-hover-to-div-boxes */
+
+section {
+    background-color: white;
+}
+
+.contenedorDatos{
+    display: grid;
+    grid-template-columns: 40% 38% 22%;
+}
+
+
+.caractElem1{
+    height: 40px;
+    display: flex;
+    background-color: RGB(230,230,230);
+    align-items: center;
+    justify-content: center;
+    border: 1px solid RGB(230,230,230);
+}
+
+.caractElem{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.producto{
+    margin-bottom: 10px;
+    border: 1px solid RGB(220,220,220);
+    height: 300px;
+    width: 280px;
+    /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);*/
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.producto h3{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.producto .marca{
+    height: 10%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.producto .precio{
+    font-size: 20px;
+    color: #fcb345;
+    font-weight: bold;
+}
+
+.producto .descripcion{
+
+    align-content: center;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    height: 5%;
+    font-weight: lighter;
+    font-size: 13px;
+    color: #818181;
+}
+
+.producto .imagen{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.producto:hover{
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.cajaPrecio {
+    border: 1px solid RGB(225,225,225);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 10px;
+}
+
+.cajaPrecio h3{
+    color: #fcb345;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px RGB(225,225,225);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid RGB(225,225,225);
+}
+
+.info{
+    display: flex;
+}
+.info p{
+    margin-top: 8px;
+    margin-right: 5px;
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+#plazos {
+    margin-top: 2.2px;
+    font-size: 20px;
+    color: #fcb345;
+    font-weight: bold;
+}
+.metodo p{
+    margin-top: 3px;
+    margin-right: 5px;
+    font-size: 13px;
+}
+.metodo a{
+    display:block;
+    margin-top: -8px;
+    font-size: 14px;
+    color: black;
+}
+
+.botonesPago a{
+    text-decoration: none;
+}
+
+.socio {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    font-size: 13px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background-color: #efefef;
+}
+
+.socio input[type="checkbox"]{
+    margin-top: 25px;
+    line-height: normal;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    color: currentColor;
+    border: 1px solid black;
+    border-radius: 0.1em;
+    display: grid;
+}
+
+.socio input[type="checkbox"]::before {
+    content: "";
+    transform: scale(0);
+    transition: 60ms transform ease-in-out;
+    background-color: #fcb345;
+}
+
+.socio input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.socio h4{
+    margin-left: 30px;
+}
+
+.socio p{
+    margin-top: -20px;
+    margin-left: 30px;
+}
+
+.compraClic{
+    font-size: 15px;
+    border:  2px solid black;
+    color: black;
+    margin-top: 2rem;
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.compraClic:hover{
+    transition-duration: 0.2s;
+    background-color: black;
+    color: white;
+}
+
+.cesta{
+    font-size: 15px;
+    border: 2px solid #fcb345;
+    color: #fcb345;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.cesta:hover{
+    transition-duration: 0.2s;
+    background-color: #fcb345;
+    color: white;
+}
+#productos{
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 50px;
+    text-align: center;
+    height: auto;
+
+}
+.producto{
+
+    margin-bottom: 10px;
+    border: 1px solid RGB(220,220,220);
+    height: 500px;
+    width: 280px;
+    /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);*/
+    transition: box-shadow 0.1s ease-in-out;
+
+}
+.producto img{
+
+    width: 180px;
+    height: 200px;
+
+}
