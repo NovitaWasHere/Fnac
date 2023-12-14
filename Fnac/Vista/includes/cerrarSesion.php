@@ -1,11 +1,16 @@
 <?php
 
-session_start();
+    session_start();
 
-    if (isset($_POST['cerrar_sesion'])) {
+    $dir_actual = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    $direccion_esperada = "http://localhost/FnacJunto/Vista/includes/cerrarSesion.php";
+
+    if ($dir_actual === $direccion_esperada) {
         // Destruye la sesión
         session_destroy();
-        header("Location: ../HTML/index.php");
-        exit;
 
-}
+        header("Location: http://localhost/FnacJunto/Vista/index.php");
+        exit();
+
+    }

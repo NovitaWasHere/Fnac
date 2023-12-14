@@ -19,7 +19,7 @@
 include "includes/header.php";
 ?>
 <section>
-    <div id="novedadesOut"><h2>¡Vaya! Esta Agotado, visita la pagína más adelante para futuras novedades y promociónes</h2></div>
+    <div id="novedadesOut"><h2>¡Vaya! Está Agotado, visita la pagína más adelante para futuras novedades y promociones</h2></div>
     <div id="productosCaja">
         <div id="productos" >
 

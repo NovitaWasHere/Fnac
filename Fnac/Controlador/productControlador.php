@@ -15,4 +15,15 @@ class productControlador
         //la maquetación de la página por cada registro que devuelva la función
         echo json_encode($respuesta);
     }
+
+    public function listar()
+    {
+        //Eligimos tabla
+        $tablaBD = "Producto";
+        //llamamos a la función de listar todos
+        $respuesta = ProductModelo::listar($tablaBD);
+
+        echo json_encode($respuesta);
+    }
+
 }

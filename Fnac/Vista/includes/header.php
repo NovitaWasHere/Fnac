@@ -53,9 +53,7 @@
                 </div>
                     
                 <div id="opcionesUser">
-                <form method="post" action="../Controlador/cerrarSesion.php">
-                <input id="cerrar_sesion"type="submit" name="cerrar_sesion" value="Cerrar Sesión">
-                </form>
+                 <a id="cerrar_sesion" href="includes/cerrarSesion.php"><p>Cerrar Sesion</p></a>
                 </div>
                 
                 <div id="market">

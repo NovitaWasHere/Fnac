@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/estilosPrueba.css">
     <script src="https://kit.fontawesome.com/9f04fd84f4.js" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
-    <script src="js/javaScriptProducto.js" async></script>
 </head>
 <body>
 
@@ -24,41 +23,33 @@
 
     ?>
 
-    <div class="contenedor">
+    <?php
+    $id = $_GET['id'];
+
+    echo '<div class="contenedor">
+        <h1 id="idProductoUnico" style="display: none"> '. "$id". '</h1>
         <div class="contenedorDatos">
             <div class="titulo">
-                <h2 id="nombre">Producto</h2>
+                <h2 id="nombre"></h2>
                 <div class="contenedorImagen">
-                    <div class="imagen">
-                        <img id="foto" src="" title="">
+                    <div class="imagen" id="imagenP">
+                 
                     </div>
                 </div>
             </div>
             <div class="caract">
                 <h3 id="marca">Características: </h3>
-                <div class="caractElem1">
-                    Tamaño de pantalla ("):
+                <div class="caractElem">
+                    <h2 style="color: #0a141d;text-align: center">Nombre del producto</h2>
+                </div>
+                <div class="caractElem1" id="caractElem1">
+
                 </div>
                 <div class="caractElem">
-                    Tipo de procesador:
+                    <h2 style="color: #0a141d;text-align: center">Descripción del producto</h2>
                 </div>
-                <div class="caractElem1">
-                    Fabricante del procesador:
-                </div>
-                <div class="caractElem">
-                    RAM:
-                </div>
-                <div class="caractElem1">
-                    Disco duro:
-                </div>
-                <div class="caractElem">
-                    Tamaño del disco duro:
-                </div>
-                <div class="caractElem1">
-                    Sistema operativo:
-                </div>
-                <div class="caractElem">
-                    Puertos USB:
+                <div class="caractElem1" id="caractElem3">
+
                 </div>
             </div>
             <div class="cajaPrecio">
@@ -67,7 +58,7 @@
                 </div>
                 <div class="infoMetodo">
                     <div class="info">
-                        <p>Págalo a plazos desde</p><p id="plazos"></p><p>en 14 meses.</p>
+                    <div id="ptext"><p style="display: none">Págalo a plazos desde</p><p id="plazos"></p></div>
                     </div>
                     <div class="metodo">
                         <p>Elige el método de pago al finalizar tu compra.</p><a href="#">Ver condiciones legales*.</a>
@@ -80,20 +71,20 @@
                     <p>Hasta -5% en tus compras y envío gratis ilimitado (14,90€ al año)</p>
                 </div>
                 <div class="botonesPago">
-                    <a href="#">
-                        <div class="compraClic">
-                            Comprar en un clic
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="cesta">
+                    <button>
+                        <div id="boton">
                             Añadir a la cesta
                         </div>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </div>'
+
+
+    ?>
+
+    <br>  <br>
 
     <?php
         include "includes/footer.php"

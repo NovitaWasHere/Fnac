@@ -22,4 +22,19 @@ class productModelo
             $pdo = null;
         }
     }
+    static public function listar($tablaBD)
+    {
+
+        $pdo = ConexionBD::conectarse()->prepare("SELECT id, nombre, imagen, precio , descripcion, disponible,cantidad, tipo FROM $tablaBD");
+
+        try {
+            $pdo->execute();
+            return $pdo->fetchAll();
+        } catch (PDOException $e) {
+            echo "ERROR: $e";
+        } finally {
+
+            $pdo = null;
+        }
+    }
 }

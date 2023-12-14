@@ -185,7 +185,7 @@ function market(){
                 for(let x=0;x<data.length;x++){
 
                     if(parseInt(data[x].tipo) == 3){
-                        cuerpo += '<a href="#"><div class="producto">\n' +
+                        cuerpo += '<div class="producto">\n' +
                             '               <div class="nombre">\n' +
                             '                   <h3 class="nombreProducto">'+data[x].nombre +'</h3>\n' +
                             '               </div>\n' +
@@ -208,7 +208,8 @@ function market(){
                             '               <div class="precio">\n' +
                             '                   <p>' + data[x].precio + '$</p>\n' +
                             '               </div>' +
-                            '           </div></a>';
+                                '    <a href="producto.php?id='+ data[x].id +'">Ver producto</a>'+
+                            '           </div>';
                     }
                 }
 
@@ -243,6 +244,7 @@ function market(){
                             '               <div class="precio">\n' +
                             '                   <p>' + data[x].precio + '$</p>\n' +
                             '               </div>' +
+                            '    <a href="producto.php?id='+ data[x].id +'">Ver producto</a>'+
                             '           </div>';
                     }
                 }
@@ -274,9 +276,7 @@ function market(){
                             '               <div class="descripcion">' +
                             '                   <p>'+   data[x].descripcion +'</p>' +
                             '               </div>\n' +
-                            '               <div class="precio">\n' +
-                            '                   <p>' + data[x].precio + '$</p>\n' +
-                            '               </div>' +
+                            '    <a href="producto.php?id='+ data[x].id +'">Ver producto</a>'+
                             '           </div>';
                     }
 
@@ -368,7 +368,17 @@ function market(){
 
                     //Se hará la comprobación de que producto se esta seleccionando con el nombre dado que es equivalente al
                     //que se le ha dado en la base de datos
-                    let nombreProducto = boton.parentElement.querySelector(".nombreProducto").textContent;
+                    let nombreProducto
+                    if(location.href.includes("producto.php")){
+
+                        nombreProducto = document.getElementById("nombreProducto").textContent
+                        console.log(nombreProducto)
+
+                    }else{
+
+                        nombreProducto = boton.parentElement.querySelector(".nombreProducto").textContent;
+
+                    }
 
                     //Si hay local Storage disponible significa que se tiene que actualizar el carrito en base a lo que ya se ha recogido
                     if(productosObtenidos!= null){
@@ -507,6 +517,47 @@ function market(){
             });
 
         })
+        fetch('Jsons.php?listar=unProducto')
+            .then(response => response.json())
+            .then (data =>{
+
+                console.log(data)
+                let productoUnico
+
+               if(window.location.href.includes("producto.php")){
+
+                   productoUnico = document.getElementById("idProductoUnico").innerHTML
+
+               }
+
+                productoUnico = parseInt(productoUnico)
+
+                console.log(productoUnico)
+
+                    //Listamos base de datos de productos
+                    let cuerpo = "";
+                    for(let x=0;x<data.length;x++){
+
+
+                        if(data[x].id == productoUnico){
+                            document.getElementById("nombre").innerHTML = " <h3 style='color: #0a141d' class='nombreProducto'  id='nombreProducto'>"+data[x].nombre +"</h3>"
+                            document.getElementById("imagenP").innerHTML = "<img id=\"foto\" src=" + data[x].imagen +" title=\"\">"
+                            document.getElementById("caractElem1").innerHTML = " <h3 id=\"marca\">"+  data[x].nombre +"</h3> "
+                            document.getElementById("caractElem3").innerHTML = " <h3 id=\"marca\">"+  data[x].descripcion +"</h3> "
+                            document.getElementById("precioFinal").innerHTML = " <h2 style='text-align: center;color: #FDCD6C' id=\"marca\">"+  data[x].precio +"€</h2> "
+                           if( parseInt(data[x].precio) >= 100){
+                               document.getElementById("ptext").style.display = "block"
+                               let resultado = parseInt(data[x].precio)/12
+                               var entero = resultado.toFixed();
+                               document.getElementById("plazos").innerHTML = " <h2 style='text-align: center;color: #FDCD6C' id=\"marca\">"+  entero +"€</h2> "
+                           }else{
+                               document.getElementById("plazos").innerHTML = " <h2 style='text-align: center;color: #FDCD6C' id=\"marca\">"+  data[x].precio +"€</h2> "
+                           }
+                        }
+
+                    }
+
+            })
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -589,9 +640,6 @@ function market(){
                     '                <div style="margin-left: 18%">'+
                     '                    <img src="'+ producto.imagen +'">'+
                     '                </div>' +
-                    "      <br><button id=\"boton\">\n" +
-                    "                    <p style='color: black'>Agregar a cesta</p>\n" +
-                    "                </button><br>\n"+
                     '               <div class="descripcion">' +
                     '                   <p>'+   producto.descripcion +'</p>' +
                     '               </div>\n' +
@@ -619,6 +667,173 @@ function market(){
 
     }
 
+    if(window.location.href.includes("producto.php") && localStorage.getItem("productosCarrito") != null){
+
+        //Local Storage del json hecho de elementos del carrito
+        let productosObtenidos = localStorage.getItem("productosCarrito")
+        //Si existe se utilizara esta información vuelta en una variable para su facil representacion
+        let products = JSON.parse(productosObtenidos);
+        //Local Storage del numero de productos del carrito
+        let cantidadProductosObtenidos = localStorage.getItem("cantidadProductos")
+
+        let arrayAuxiliar = localStorage.getItem("arrayAux")
+        let cantidadAuxiliar = localStorage.getItem("cantidadAux")
+        console.log(arrayAuxiliar)
+
+        if(arrayAuxiliar != null){
+
+            products = JSON.parse(arrayAuxiliar);
+            cantidadProductosObtenidos = cantidadAuxiliar
+            localStorage.setItem("productosCarrito", arrayAuxiliar);
+            localStorage.setItem("cantidadProductos", cantidadAuxiliar);
+
+        }
+
+        //Rectificar la cantidad de productos con las que se esta tratando
+        console.log("Cantidad = " + cantidadProductosObtenidos)
+        //Rectificar los productos con los que esta tratando la app
+        console.log("Productos = " + products)
+        //Actualizar numero de productos en la pagina actual
+        numeroProductosid.innerHTML = products.length;
+        //Datos con los que se va a tratar
+        console.log("datos = " + products)
+
+        for (let i = 0; i < products.length; i++) {
+
+            let producto = products[i]
+
+            if(producto != null){
+                productosCarrito.innerHTML +='<div id="listaProductosUsuario">'+
+                    '<div id="contenedorImgBoton">'+
+                    '<div id="cajaImagenProducto">'+
+                    '<img src="'+ producto.imagen +'" alt="">'+
+                    '</div>'+
+                    '<div id="botonesMarket">'+
+                    '</div>'+
+                    '</div>'+
+                    '<div id="cajaInfoProducto">'+
+                    '<h2>'+ producto.nombre  + '</h2>'+
+                    '<p>Cantidad <p id="cantidad'+producto.id+'"> '+ producto.cantidad + '</p></p>'+
+                    '<p>Precio </p><h3>'+ producto.precio +' </h3>'+
+                    '<p>' + producto.descripcion + '</p>'+
+                    '</div>'+
+                    '</div><br>';
+            }
+        }
+
+    }
+
+    if(window.location.href.includes("productos.php") && localStorage.getItem("productosCarrito") != null){
+
+        //Local Storage del json hecho de elementos del carrito
+        let productosObtenidos = localStorage.getItem("productosCarrito")
+        //Si existe se utilizara esta informacion vuelta en una variable para su facil representacion
+        let products = JSON.parse(productosObtenidos);
+        //Local Storage del numero de productos del carrito
+        let cantidadProductosObtenidos = localStorage.getItem("cantidadProductos")
+
+        let arrayAuxiliar = localStorage.getItem("arrayAux")
+        let cantidadAuxiliar = localStorage.getItem("cantidadAux")
+        console.log(arrayAuxiliar)
+
+        if(arrayAuxiliar != null){
+
+            products = JSON.parse(arrayAuxiliar);
+            cantidadProductosObtenidos = cantidadAuxiliar
+            localStorage.setItem("productosCarrito", arrayAuxiliar);
+            localStorage.setItem("cantidadProductos", cantidadAuxiliar);
+
+        }
+
+        //Rectificar la cantidad de productos con las que se esta tratando
+        console.log("Cantidad = " + cantidadProductosObtenidos)
+        //Rectificar los productos con los que esta tratando la app
+        console.log("Productos = " + products)
+        //Actualizar numero de productos en la pagina actual
+        numeroProductosid.innerHTML = products.length;
+        //Datos con los que se va a tratar
+        console.log("datos = " + products)
+
+        for (let i = 0; i < products.length; i++) {
+
+            let producto = products[i]
+
+            if(producto != null){
+                productosCarrito.innerHTML +='<div id="listaProductosUsuario">'+
+                    '<div id="contenedorImgBoton">'+
+                    '<div id="cajaImagenProducto">'+
+                    '<img src="'+ producto.imagen +'" alt="">'+
+                    '</div>'+
+                    '<div id="botonesMarket">'+
+                    '</div>'+
+                    '</div>'+
+                    '<div id="cajaInfoProducto">'+
+                    '<h2>'+ producto.nombre  + '</h2>'+
+                    '<p>Cantidad <p id="cantidad'+producto.id+'"> '+ producto.cantidad + '</p></p>'+
+                    '<p>Precio </p><h3>'+ producto.precio +' </h3>'+
+                    '<p>' + producto.descripcion + '</p>'+
+                    '</div>'+
+                    '</div><br>';
+            }
+        }
+
+    }
+
+    if(window.location.href.includes("novedades.php") && localStorage.getItem("productosCarrito") != null){
+
+        //Local Storage del json hecho de elementos del carrito
+        let productosObtenidos = localStorage.getItem("productosCarrito")
+        //Si existe se utilizará esta información vuelta en una variable para su facil representacion
+        let products = JSON.parse(productosObtenidos);
+        //Local Storage del numero de productos del carrito
+        let cantidadProductosObtenidos = localStorage.getItem("cantidadProductos")
+
+        let arrayAuxiliar = localStorage.getItem("arrayAux")
+        let cantidadAuxiliar = localStorage.getItem("cantidadAux")
+        console.log(arrayAuxiliar)
+
+        if(arrayAuxiliar != null){
+
+            products = JSON.parse(arrayAuxiliar);
+            cantidadProductosObtenidos = cantidadAuxiliar
+            localStorage.setItem("productosCarrito", arrayAuxiliar);
+            localStorage.setItem("cantidadProductos", cantidadAuxiliar);
+
+        }
+
+        //Rectificar la cantidad de productos con las que se esta tratando
+        console.log("Cantidad = " + cantidadProductosObtenidos)
+        //Rectificar los productos con los que esta tratando la app
+        console.log("Productos = " + products)
+        //Actualizar numero de productos en la pagina actual
+        numeroProductosid.innerHTML = products.length;
+        //Datos con los que se va a tratar
+        console.log("datos = " + products)
+
+        for (let i = 0; i < products.length; i++) {
+
+            let producto = products[i]
+
+            if(producto != null){
+                productosCarrito.innerHTML +='<div id="listaProductosUsuario">'+
+                    '<div id="contenedorImgBoton">'+
+                    '<div id="cajaImagenProducto">'+
+                    '<img src="'+ producto.imagen +'" alt="">'+
+                    '</div>'+
+                    '<div id="botonesMarket">'+
+                    '</div>'+
+                    '</div>'+
+                    '<div id="cajaInfoProducto">'+
+                    '<h2>'+ producto.nombre  + '</h2>'+
+                    '<p>Cantidad <p id="cantidad'+producto.id+'"> '+ producto.cantidad + '</p></p>'+
+                    '<p>Precio </p><h3>'+ producto.precio +' </h3>'+
+                    '<p>' + producto.descripcion + '</p>'+
+                    '</div>'+
+                    '</div><br>';
+            }
+        }
+
+    }
 
 
 }

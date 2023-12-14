@@ -16,6 +16,12 @@ switch ($_GET["listar"]){
         break;
 
     }
+    case "unProducto":{
+
+        $producto -> listar();
+        break;
+
+    }
     case "todosUsuarios":{
 
         $usuario -> listarUsuarios();
